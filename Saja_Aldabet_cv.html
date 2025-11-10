@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saja Al-Dabet - Curriculum Vitae</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f4f6f9;
+        }
+
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+           
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header-content h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 1.2em;
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1e3c72;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .research-tag {
+            display: inline-block;
+            background: white;
+            color: #1e3c72;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px 5px 5px 0;
+            border: 1px solid #1e3c72;
+            font-weight: 500;
+        }
+
+        .skill-item {
+            padding: 8px 0;
+            font-size: 0.9em;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: 40px 50px;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-header {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #1e3c72;
+        }
+
+        .subsection-header {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2a5298;
+            margin: 30px 0 20px 0;
+        }
+
+        /* Education & Experience Items */
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            border-left: 2px solid #e0e0e0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #1e3c72;
+            border: 2px solid white;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1.15em;
+            color: #2c3e50;
+        }
+
+        .item-date {
+            background: #e8f4f8;
+            color: #1e3c72;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .item-institution {
+            color: #5a6c7d;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .item-details {
+            color: #4a5568;
+            margin-top: 8px;
+        }
+
+        .item-details ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .item-details li {
+            margin: 6px 0;
+        }
+
+        .gpa-highlight {
+            background: #d4edda;
+            color: #155724;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        /* Publications */
+        .publication-card {
+            background: #f8f9fa;
+            border-left: 4px solid #1e3c72;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .publication-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .pub-authors {
+            color: #5a6c7d;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        .pub-venue {
+            color: #6c757d;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .pub-meta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .citation-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .year-badge {
+            background: #6c757d;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .citation-badge.high {
+            background: #dc3545;
+        }
+
+        .citation-badge.medium {
+            background: #fd7e14;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #1e3c72;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+
+        .project-detail {
+            margin: 8px 0;
+            color: #4a5568;
+        }
+
+        .project-detail strong {
+            color: #2c3e50;
+        }
+
+        /* Scholarship Cards */
+        .scholarship-card {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 4px solid #f57c00;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .scholarship-card strong {
+            color: #e65100;
+        }
+
+        /* References */
+        .reference-card {
+            background: #e8f4f8;
+            border: 1px solid #b8daed;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .reference-card p {
+            margin: 8px 0;
+        }
+
+        .reference-card strong {
+            color: #1e3c72;
+            font-size: 1.1em;
+        }
+
+        .reference-card a {
+            color: #1e3c72;
+            text-decoration: none;
+        }
+
+        .reference-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .header {
+                grid-template-columns: 150px 1fr;
+                gap: 30px;
+                padding: 40px 30px;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .content-area {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+            }
+
+            .header-content h1 {
+                font-size: 2em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                padding: 30px 20px;
+            }
+
+            .content-area {
+                padding: 30px 20px;
+            }
+
+            .item-header {
+                flex-direction: column;
+            }
+
+            .timeline-item {
+                padding-left: 20px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page-wrapper {
+                box-shadow: none;
+            }
+
+            .publication-card,
+            .project-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="profile-photo">
+                <img src="IMG_0129 3.jpg" alt="Saja Al-Dabet">
+            </div>
+            <div class="header-content">
+                <h1>Saja Al-Dabet</h1>
+                <div class="header-subtitle">PhD Candidate in Computing and Informatics</div>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        📧 <a href="mailto:saja.aldabet@yahoo.com">saja.aldabet@yahoo.com</a>
+                    </div>
+                    <div class="contact-item">
+                        📱 <a href="tel:+971544893882">+971 544893882</a>
+                    </div>
+                    <div class="contact-item">
+                        🔗 <a href="https://www.linkedin.com/in/saja-al-dabet" target="_blank">linkedin.com/in/saja-al-dabet</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Personal Information -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Personal Info</h2>
+                    <div class="info-item">
+                        <span class="info-label">Full Name</span>
+                        Saja Belal Al-Dabet
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Date of Birth</span>
+                        July 6, 1994
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Nationality</span>
+                        Jordanian
+                    </div>
+                </div>
+
+                <!-- Research Interests -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Research Interests</h2>
+                    <div class="research-tag">Natural Language Processing</div>
+                    <div class="research-tag">Health Informatics</div>
+                    <div class="research-tag">Deep Learning</div>
+                    <div class="research-tag">Data Mining</div>
+                    <div class="research-tag">Medical AI</div>
+                </div>
+
+                <!-- Languages -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Languages</h2>
+                    <div class="info-item">
+                        <span class="info-label">Arabic</span>
+                        Native
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">English</span>
+                        Professional
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Technical Skills</h2>
+                    <div class="skill-item">Python, Java, C/C++</div>
+                    <div class="skill-item">Deep Learning Frameworks</div>
+                    <div class="skill-item">NLP & Transformers</div>
+                    <div class="skill-item">Data Mining & Analysis</div>
+                    <div class="skill-item">SQL & Database Systems</div>
+                    <div class="skill-item">Web Development</div>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Education -->
+                <section class="section">
+                    <h2 class="section-header">Education</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <div class="item-title">PhD in Computing and Informatics</div>
+                            <div class="item-date">2021 – Present</div>
+                        </div>
+                        <div class="item-institution">United Arab Emirates University, Al Ain, UAE</div>
+                        <div class="item-details">
+                            <span class="gpa-highlight">GPA: 4.0/4.0 - Excellent</span>
+                            <p style="margin-top: 10px;">Research Focus: AI-driven diagnostic frameworks for abnormal head posture analysis using multimodal approaches combining LLMs, 3D modeling, and Vision Transformers</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <div class="item-title">Master of Computer Science</div>
+                            <div class="item-date">2016 – 2019</div>
+                        </div>
+                        <div class="item-institution">Princess Sumaya University For Technology, Amman, Jordan</div>
+                        <div class="item-details">
+                            <span class="gpa-highlight">Average: 89.4% - Excellent</span>
+                            <p style="margin-top: 10px;">Thesis: Enhancing Arabic Aspect-Based Sentiment Analysis using Deep Learning Frameworks</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <div class="item-title">Bachelor of Computer Information Systems</div>
+                            <div class="item-date">2012 – 2016</div>
+                        </div>
+                        <div class="item-institution">The University of Jordan, Aqaba, Jordan</div>
+                        <div class="item-details">
+                            <span class="gpa-highlight">GPA: 3.79/4.0 - Excellent with First Class Honor</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section class="section">
+                    <h2 class="section-header">Professional Experience</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <div class="item-title">Graduate Research Assistant</div>
+                            <div class="item-date">August 2021 – Present</div>
+                        </div>
+                        <div class="item-institution">United Arab Emirates University, Al Ain, UAE</div>
+                        <div class="item-details">
+                            <ul>
+                                <li>Senior researcher in "Detecting Abnormal Body Movement using Advanced Deep-learning Methods" project</li>
+                                <li>Developing multimodal AI systems for medical diagnosis combining computer vision and natural language processing</li>
+                                <li>Published multiple papers in high-impact journals and conferences</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <div class="item-title">Lecturer</div>
+                            <div class="item-date">October 2019 – June 2021</div>
+                        </div>
+                        <div class="item-institution">Aqaba University of Technology, Aqaba, Jordan</div>
+                        <div class="item-details">
+                            <ul>
+                                <li>Taught 12+ courses including Computer Networks, Software Design, Data Structures, and Human-Computer Interaction</li>
+                                <li>Served as Director Assistant of Computer Center</li>
+                                <li>Mentored undergraduate students in software development projects</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <div class="item-title">Teaching Assistant</div>
+                            <div class="item-date">October 2016 – June 2018</div>
+                        </div>
+                        <div class="item-institution">Princess Sumaya University For Technology, Amman, Jordan</div>
+                        <div class="item-details">
+                            <ul>
+                                <li>Laboratory teaching assistant and supervisor</li>
+                                <li>Examination monitor and evaluator for homework, exams, and projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Publications -->
+                <section class="section">
+                    <h2 class="section-header">Publications</h2>
+                    
+                    <h3 class="subsection-header">2025</h3>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Ocular-Induced Abnormal Head Posture: Diagnosis and Missing Data Imputation</div>
+                        <div class="pub-authors">S Al-Dabet, S Turaev, N Zaki, AO Khan, L Eldweik</div>
+                        <div class="pub-venue">arXiv preprint arXiv:2510.05649</div>
+                        <div class="pub-meta">
+                            <span class="year-badge">2025</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="pub-title">PoseGaze-AHP: A Knowledge-Based 3D Dataset for AI-Driven Ocular and Postural Diagnosis</div>
+                        <div class="pub-authors">S Al-Dabet, S Turaev, N Zaki, AO Khan, L Eldweik</div>
+                        <div class="pub-venue">arXiv preprint arXiv:2510.03873</div>
+                        <div class="pub-meta">
+                            
+                            <span class="year-badge">2025</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Multidimensional Assessment of Public Space Quality: A Comprehensive Framework Across Urban Space Typologies</div>
+                        <div class="pub-authors">M John, S Turaev, S Al-Dabet, R Abdulghafor</div>
+                        <div class="pub-venue">arXiv preprint arXiv:2505.21555</div>
+                        <div class="pub-meta">
+                            
+                            <span class="year-badge">2025</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Detecting AI-Generated Text: A Bi-GRU with Linguistic Features Approach</div>
+                        <div class="pub-authors">A Hireche, S Al-Dabet, M Mediani, AN Belkacem</div>
+                        <div class="pub-venue">2025 IEEE Global Engineering Education Conference (EDUCON)</div>
+                        <div class="pub-meta">
+                            
+                            <span class="year-badge">2025</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Ocular-induced Abnormal Head Postures: A Systematic Review and Analysis</div>
+                        <div class="pub-authors">S Al-Dabet, S Turaev, N Zaki</div>
+                        <div class="pub-venue">Survey of Ophthalmology</div>
+                        <div class="pub-meta">
+                          
+                            <span class="year-badge">2025</span>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-header">2024</h3>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Dual-task Learning for AI-generated Medical Text Detection and Named Entity Recognition</div>
+                        <div class="pub-authors">S Al-Dabet, B Alomar, S Turaev, AN Belkacem</div>
+                        <div class="pub-venue">Proceedings of the 7th International Conference on Natural Language and Speech Processing</div>
+                        <div class="pub-meta">
+                           
+                            <span class="year-badge">2024</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Unified Framework Model for Detecting and Organizing Medical Cancerous Images in IoMT Systems</div>
+                        <div class="pub-authors">RS Alkhawaldeh, S Al-Dabet</div>
+                        <div class="pub-venue">Multimedia Tools and Applications 83 (13), 37743-37770</div>
+                        <div class="pub-meta">
+                         
+                            <span class="year-badge">2024</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Data-driven Analysis of Patients' Body Language in Healthcare: A Comprehensive Review</div>
+                        <div class="pub-authors">S Turaev, A Babu, S Al-Dabet, J Rustamov, Z Rustamov, N Zaki, et al.</div>
+                        <div class="pub-venue">IEEE Access 12, 16514-16548</div>
+                        <div class="pub-meta">
+                            
+                            <span class="year-badge">2024</span>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-header">2023</h3>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Review and Analysis of Patients' Body Language from an Artificial Intelligence Perspective</div>
+                        <div class="pub-authors">S Turaev, S Al-Dabet, A Babu, Z Rustamov, J Rustamov, N Zaki, et al.</div>
+                        <div class="pub-venue">IEEE Access 11, 62140-62173</div>
+                        <div class="pub-meta">
+                            
+                            <span class="year-badge">2023</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Transformer-based Arabic Offensive Speech Detection</div>
+                        <div class="pub-authors">S Al-Dabet, A ElMassry, B Alomar, A Alshamsi</div>
+                        <div class="pub-venue">2023 International Conference on Emerging Smart Computing and Informatics (ESCI)</div>
+                        <div class="pub-meta">
+                           
+                            <span class="year-badge">2023</span>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-header">2022</h3>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Harris Hawks Optimization Algorithm: Variants and Applications</div>
+                        <div class="pub-authors">M Shehab, I Mashal, Z Momani, MKY Shambour, A AL-Badareen, S Al-Dabet, N Bataineh, L Abualigah</div>
+                        <div class="pub-venue">Archives of Computational Methods in Engineering 29 (7), 5579-5603</div>
+                        <div class="pub-meta">
+                         
+                            <span class="year-badge">2022</span>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-header">2021</h3>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Enhancing Arabic Aspect-based Sentiment Analysis using Deep Learning Models</div>
+                        <div class="pub-authors">S Al-Dabet, S Tedmori, ALS Mohammad</div>
+                        <div class="pub-venue">Computer Speech & Language 69, 101224</div>
+                        <div class="pub-meta">
+                           
+                            <span class="year-badge">2021</span>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-header">2020</h3>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Extracting Opinion Targets Using Attention-Based Neural Model</div>
+                        <div class="pub-authors">S Al-Dabet, S Tedmori, M Al-Smadi</div>
+                        <div class="pub-venue">SN Computer Science 1 (5), 242</div>
+                        <div class="pub-meta">
+                           
+                            <span class="year-badge">2020</span>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-header">2019</h3>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Sentiment Analysis for Arabic Language using Attention-Based Simple Recurrent Unit</div>
+                        <div class="pub-authors">S Al-Dabet, S Tedmori</div>
+                        <div class="pub-venue">2019 2nd International Conference on New Trends in Computing Sciences (ICTCS)</div>
+                        <div class="pub-meta">
+                        
+                            <span class="year-badge">2019</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="pub-title">Usability Evaluation of iPhone Built-in Applications</div>
+                        <div class="pub-authors">S Al-Dabet, S Jusoh</div>
+                        <div class="pub-venue">2019 11th International Conference on Electronics, Computers and Artificial Intelligence (ECAI)</div>
+                        <div class="pub-meta">
+                      
+                            <span class="year-badge">2019</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects -->
+                <section class="section">
+                    <h2 class="section-header">Research Projects</h2>
+                    
+                    <div class="project-card">
+                        <div class="project-title">PhD Research Project</div>
+                        <div class="project-detail"><strong>Title:</strong> AI-driven Diagnostic Framework for Abnormal Head Posture Analysis</div>
+                        <div class="project-detail"><strong>Focus:</strong> Developing multimodal AI systems combining LLM extraction, 3D modeling with Neural Head Avatar frameworks, and Vision Transformers to differentiate between neurological and ocular causes of abnormal head postures</div>
+                        <div class="project-detail"><strong>Supervisor:</strong> Dr. Sherzod Turaev</div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-title">Master Thesis</div>
+                        <div class="project-detail"><strong>Title:</strong> Enhancing Arabic Aspect-Based Sentiment Analysis using Deep Learning Frameworks</div>
+                        <div class="project-detail"><strong>Supervisor:</strong> Dr. Sara Tedmori</div>
+                        <div class="project-detail"><strong>Impact:</strong> Published in Computer Speech & Language journal with 85 citations</div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-title">Bachelor Graduation Project</div>
+                        <div class="project-detail"><strong>Title:</strong> Students Attendance System using University Identification Cards</div>
+                        <div class="project-detail"><strong>Supervisor:</strong> Dr. Bilal Al-Ahmad</div>
+                    </div>
+                </section>
+
+                <!-- Scholarships -->
+                <section class="section">
+                    <h2 class="section-header">Scholarships & Awards</h2>
+                    
+                    <div class="scholarship-card">
+                        <strong>Master Degree:</strong> Scientific Research Support Fund Scholarship for Graduate Studies
+                    </div>
+
+                    <div class="scholarship-card">
+                        <strong>Bachelor Degree:</strong> Aqaba Special Economic Zone Authority (ASEZA) Scholarship
+                    </div>
+                </section>
+
+                <!-- References -->
+                <section class="section">
+                    <h2 class="section-header">References</h2>
+                    
+                    <div class="reference-card">
+                        <p><strong>Dr. Sherzod Turaev</strong></p>
+                        <p>PhD Supervisor</p>
+                        <p>United Arab Emirates University</p>
+                        <p>Email: <a href="mailto:sherzod@uaeu.ac.ae">sherzod@uaeu.ac.ae</a></p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
